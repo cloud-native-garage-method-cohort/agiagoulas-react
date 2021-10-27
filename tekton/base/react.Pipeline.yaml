@@ -13,11 +13,17 @@ spec:
     - name: image-repo
       type: string
       description: Docker image repository
+    - name: sha
+      type: string
+      default: ""
+      description: Precise SHA of the commit to build
   tasks:
     - name: clone-repository
       params:
         - name: url
           value: "$(params.source-repo)"
+        - name: revision
+          value: "$(params.sha)"
         - name: deleteExisting
           value: "true"
       taskRef:
