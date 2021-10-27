@@ -2,13 +2,11 @@ FROM node:12
 
 WORKDIR /usr/src/app
 
-COPY /react-app/package*.json ./
+COPY package*.json ./
 
 RUN npm i 
 
-#COPY . ./
-
-#RUN npm i
+COPY . .
 
 RUN npm run build
 
