@@ -3,6 +3,7 @@ kind: PipelineRun
 metadata:
   generateName: react-pipeline-run-
 spec:
+  serviceAccountName: build-bot
   params:
     - name: source-repo
       value: https://github.com/cloud-native-garage-method-cohort/agiagoulas-react.git
