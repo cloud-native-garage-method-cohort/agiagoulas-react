@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: react-pipeline-run-
+spec:
+  params:
+    - name: source-repo
+      value: https://github.com/cloud-native-garage-method-cohort/agiagoulas-react.git
+    - name: image-repo
+      value: quay.io/agiagoulas/react
+  pipelineRef:
+    name: react-pipeline
+  workspaces:
+    - name: pipeline-shared-data
+      volumeClaimTemplate:
+        spec:
+          resources:
+            requests:
+              storage: 1Gi
+          accessModes:
+            - ReadWriteOnce
