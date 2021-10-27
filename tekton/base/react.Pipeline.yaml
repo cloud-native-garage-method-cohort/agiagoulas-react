@@ -27,6 +27,8 @@ spec:
       params:
         - name: IMAGE
           value: "$(params.image-repo):$(tasks.clone-repository.results.commit)"
+        - name: DOCKERFILE
+          value: ./react-app/Dockerfile
       runAfter:
         - clone-repository
       taskRef:
