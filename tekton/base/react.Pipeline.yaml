@@ -79,6 +79,8 @@ spec:
         - name: source
           workspace: pipeline-shared-data
     - name: save-configuration
+      runAfter:
+          - deploy
       params:
         - name: manifest
           value: "$(tasks.create-configuration.results.manifest)"
@@ -86,8 +88,6 @@ spec:
           value: "$(params.app-name)"
         - name: sha
           value: "$(tasks.clone-repository.results.commit)"
-      runAfter:
-        - deploy
       taskRef:
         name: save-configuration
       workspaces:
