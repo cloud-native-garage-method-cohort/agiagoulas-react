@@ -8,3 +8,4 @@ resources:
 - quay-io-credentials.Secret.yaml
 - react.Pipeline.yaml
 - webhook-receiver.EventListener.yaml
+- save-configuration.Task.yaml
